@@ -1,0 +1,44 @@
+{
+  "name": "my-super-lame-site",
+  "version": "1.0.0",
+  "description": "This is my super lame site.",
+  "scripts": {
+    "jade": "jade --pretty --hierarchy src/jade/site -o out",
+    "stylus": "mkdirp out/css && stylus -u yeticss ./src/stylus/main.styl --out ./out/css -m",
+    "js": "mkdirp out/js && browserify src/js/main.js -o out/js/bundle.js -dv",
+    "build": "parallelshell 'npm run jade' 'npm run stylus' 'npm run js'",
+    "deploy": "npm run build && surge ./out npm-build-tool.surge.sh",
+    "watch-jade": "node tasks/watch.js --dir ./src/jade --exec 'npm run jade'",
+    "watch-stylus": "node tasks/watch.js --dir ./src/stylus --exec 'npm run stylus'",
+    "watch-js": "mkdirp out/js && watchify src/js/main.js -o out/js/bundle.js -dv",
+    "watch": "parallelshell 'npm run watch-jade' 'npm run watch-js' 'npm run watch-stylus'",
+    "livereload": "live-reload --port=9000 ./out",
+    "static-server": "http-server ./out -s -o",
+    "serve": "parallelshell 'npm run static-server' 'npm run livereload'",
+    "clean": "del out",
+    "start": "npm run build -s && parallelshell 'npm run serve -s' 'npm run watch -s'"
+  },
+  "author": {
+    "name": "Kahlil Lechelt",
+    "email": "hello@kahlil.info",
+    "url": "http://kahlil.info"
+  },
+  "license": "MIT",
+  "repository": "distilledhype/npm-build-tool",
+  "devDependencies": {
+    "browserify": "^10.2.1",
+    "del": "^1.2.0",
+    "eslint": "^0.23.0",
+    "http-server": "^0.8.0",
+    "jade-cli": "0.0.1",
+    "jstransformer-marked": "0.0.1",
+    "live-reload": "^1.1.0",
+    "minimist": "^1.1.1",
+    "node-watch": "^0.3.4",
+    "stylus": "^0.51.1",
+    "surge": "^0.14.2",
+    "uglify": "^0.1.3",
+    "watchify": "^3.2.1",
+    "yeticss": "git+ssh://git@github.com/andyet/yeticss#v6.0.7"
+  }
+}

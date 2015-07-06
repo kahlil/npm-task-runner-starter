@@ -1,0 +1,14 @@
+include ../mixins/head.jade
+
+doctype html
+html
+  +head("My Site")
+  body
+    h1.center.track-title My Super Lame Site
+    
+    .content.grid-width-desktop
+      .grid-flex-container
+        .grid-flex-cell.remove-top-padding
+          include ../content/index.jade
+    
+    include ../includes/footer.jade
