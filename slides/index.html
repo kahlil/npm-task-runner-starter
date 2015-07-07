@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>slides</title>
+<meta charset='utf-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+<style type='text/css'>
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:300|Montserrat:400,700);
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background:#242424;
+  color:#F9F9F9;
+  margin:0;
+  padding:0;
+  font-weight:700;
+  background-size: cover;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.bg-light {
+  background: #fff;
+}
+
+h1, h2, h3, p {
+  margin:0;
+}
+
+em {
+  font-style:normal;
+  color: #cd3632;
+}
+
+strong {
+  font-style:normal;
+  color:#FF4444;
+}
+
+a {
+  color:#33B5E5;
+  text-decoration:none;
+}
+
+img {
+  width:100%;
+}
+
+div {
+  cursor:pointer;
+  cursor:hand;
+  position:absolute;
+  top:0px;
+  left:0px;
+  padding:75px;
+}
+
+.center {
+  text-align:center;
+}
+
+.no-break {
+  white-space: nowrap;
+}
+
+pre, code {
+  font-family: "Open Source Pro", monospace;
+  font-weight: 300;
+}
+
+video {
+  margin-top: 2rem;
+}
+
+</style>
+<script type='text/javascript'>
+window.onload = function() {
+    var s = document.getElementsByTagName('div'), cur = 0, ti;
+		var body = document.body;
+
+    if (!s) return;
+
+		function go(n) {
+				cur = n;
+        var i = 1e3, e = s[n], t;
+				body.className = e.dataset.bodyclass || '';
+
+				for (var k = 0; k < s.length; k++) s[k].style.display = 'none';
+
+				e.style.display = 'inline';
+        e.style.fontSize = i + 'px';
+
+				var secondChild = e.firstChild.firstChild;
+
+				if (secondChild && secondChild.nodeName === 'IMG') {
+
+            body.style.backgroundImage = 'url(' + secondChild.src + ')';
+            secondChild.style.display = 'none';
+
+            if ('classList' in e) e.classList.add('imageText');
+        } else {
+            body.style.backgroundImage = '';
+            body.style.backgroundColor = e.style.backgroundColor;
+						body.style.backgroundSize = '';
+            body.style.backgroundPosition = '';
+        }
+        if (ti !== undefined) window.clearInterval(ti);
+        t = parseInt(e.dataset.timeToNext || 0, 10);
+        if (t > 0) ti = window.setTimeout(fwd, (t * 1000));
+        while (
+            e.offsetWidth > window.innerWidth ||
+            e.offsetHeight > window.innerHeight) {
+            e.style.fontSize = (i -= 2) + 'px';
+            if (i < 0) break;
+        }
+        e.style.marginTop = ((window.innerHeight - e.offsetHeight) / 2) + 'px';
+        if (window.location.hash !== n) window.location.hash = n;
+        document.title = e.textContent || e.innerText;
+    }
+    document.onclick = function() { go(++cur % (s.length)); };
+    function fwd() { go(Math.min(s.length - 1, ++cur)); }
+    function rev() { go(Math.max(0, --cur)); }
+    document.onkeydown = function(e) {
+        if (e.which === 39 || e.which === 34 || e.which === 40) fwd();
+        if (e.which === 37 || e.which === 33 || e.which === 38) rev();
+    };
+    document.ontouchstart = function(e) {
+        var x0 = e.changedTouches[0].pageX;
+        document.ontouchend = function(e) {
+            var x1 = e.changedTouches[0].pageX;
+            if (x1 - x0 < 0) fwd();
+            if (x1 - x0 > 0) rev();
+        };
+    };
+    function parse_hash() {
+        return Math.max(Math.min(
+            s.length - 1,
+            parseInt(window.location.hash.substring(1), 10)), 0);
+    }
+    if (window.location.hash) cur = parse_hash() || cur;
+    window.onhashchange = function() {
+        var c = parse_hash();
+        if (c !== cur) go(c);
+    };
+    go(cur);
+};
+</script></head><body>
+<div><p><h1 class="no-break center">Build Tool</h1></p>
+<p><h1 class="center">Shmuild Tool</h1></p>
+<h2 class="no-break center"><em>npm</em> is best</h2>
+
+</div>
+<div><p><em>Kahlil</em> Lechelt</p>
+</div>
+<div><p>Frontend Architect <em>1&amp;1</em><br>Co-Host <em>Descriptive</em> (<a href="http://descriptive.audio">http://descriptive.audio</a>)</p>
+</div>
+<div><h1 id="-npm-is-best-"><em>npm</em> is best?</h1>
+</div>
+<div><h1 id="russel-peters-about-the-music-in-dance-dance-revolution-">Russel Peters about the Music in <em>Dance Dance Revolution</em></h1>
+<p class="center" style="margin-top: 2rem">
+  <video src="russel.mp4" controls></video>
+</p>
+
+</div>
+<div><h1 id="what-do-i-really-think-">What do I <em>really</em> think?</h1>
+</div>
+<div><p><img src="iz-best.jpg" alt=""></p>
+</div>
+<div><p>But! <em>Difference.</em></p>
+</div>
+<div><p>Show of <em>hands</em>!</p>
+</div>
+<div><p>Grunt</p>
+</div>
+<div><p>Gulp</p>
+</div>
+<div><p><em>npm</em></p>
+</div>
+<div><p>make</p>
+</div>
+<div><p>Nothing</p>
+</div>
+<div><p>The Plan</p>
+</div>
+<div><p>asset building &bullet;
+<em>watch</em> &bullet;
+serve &bullet;
+<em>livereload</em> &bullet;
+clean &bullet;
+<em>parallelism</em> &bullet;
+custom tasks &bullet;
+<em>deployment</em> &bullet;
+piping &bullet;
+your <em>own</em> command line tool</p>
+</div>
+<div><p>package.json</p>
+</div>
+<div><pre><code>npm init
+</code></pre></div>
+<div><p>How to <code>npm init</code></p>
+<p class="center">
+  <video src="npm-init.mov" width="700" controls></video>
+</p>
+
+</div>
+<div><h1 id="the-scripts-field">The <em><code>scripts</code></em> Field</h1>
+</div>
+<div><h1 id="-3-things"><em>3</em> Things</h1>
+</div>
+<div><h1 id="1-">1.</h1>
+</div>
+<div><h1><em>Keys</em> &amp; Commands</h1>
+</div>
+<div><pre><code>&quot;scripts&quot;: {
+  &quot;&lt;key&gt;&quot;: &quot;&lt;command&gt;&quot;
+}
+</code></pre></div>
+<div><pre><code>npm run &lt;key&gt;
+</code></pre></div>
+<div><h1 id="2-">2.</h1>
+</div>
+<div><h1 id="node-packages-with-cli-only-need-to-be-installed-locally-">Node Packages <em>with CLI</em> only need to be installed <em>locally</em></h1>
+</div>
+<div><h1 id="3-">3.</h1>
+</div>
+<div><h1 id="package-json-fields-are-exposed-as-enviroment-variables-">package.json <em>fields</em> are exposed as <em>enviroment variables</em></h1>
+</div>
+<div><pre><code>process.env.npm_package_name
+
+process.env.npm_package_config_port
+</code></pre></div>
+<div><h1 id="simple-example">Simple Example</h1>
+</div>
+<div><pre><code>&quot;demo&quot;: &quot;node tasks/demo.js&quot;
+</code></pre></div>
+<div><p>demo.js:</p>
+<pre><code>&#39;use strict&#39;;
+
+var env = process.env;
+
+console.log(&#39;package name:&#39;, env.npm_package_name);
+console.log(&#39;package config port:&#39;, env.npm_package_config_port);
+</code></pre></div>
+<div><h1 id="demo-time-o-">Demo Time! <em>\o/</em></h1>
+</div>

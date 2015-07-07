@@ -1,0 +1,19 @@
+{
+  "name": "2015-06-10",
+  "version": "1.0.0",
+  "description": "",
+  "main": " ",
+  "scripts": {
+    "start": "npm run build && open index.html && ./watch.js",
+    "deploy": "surge ./ build-tool-shmuild-tool.surge.sh",
+    "build": "tiny --style style.css slides.md > index.html",
+    "starto": "tiny --style style.css slides.md > index.html && open index.html"
+  },
+  "author": "Kahlil Lechelt",
+  "license": "MIT",
+  "devDependencies": {
+    "node-watch": "^0.3.4",
+    "shelljs": "^0.5.1",
+    "surge": "^0.14.3"
+  }
+}

@@ -1,0 +1,66 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:300|Montserrat:400,700);
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background:#242424;
+  color:#F9F9F9;
+  margin:0;
+  padding:0;
+  font-weight:700;
+  background-size: cover;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.bg-light {
+  background: #fff;
+}
+
+h1, h2, h3, p {
+  margin:0;
+}
+
+em {
+  font-style:normal;
+  color: #cd3632;
+}
+
+strong {
+  font-style:normal;
+  color:#FF4444;
+}
+
+a {
+  color:#33B5E5;
+  text-decoration:none;
+}
+
+img {
+  width:100%;
+}
+
+div {
+  cursor:pointer;
+  cursor:hand;
+  position:absolute;
+  top:0px;
+  left:0px;
+  padding:75px;
+}
+
+.center {
+  text-align:center;
+}
+
+.no-break {
+  white-space: nowrap;
+}
+
+pre, code {
+  font-family: "Open Source Pro", monospace;
+  font-weight: 300;
+}
+
+video {
+  margin-top: 2rem;
+}
