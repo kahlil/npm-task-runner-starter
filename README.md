@@ -1,4 +1,4 @@
-# npm Build Tool Starter Project
+# npm Task Runner Starter Project
 
 Use this basic setup in the package.json `scripts` field as starter setup for using npm as a build tool.
 
