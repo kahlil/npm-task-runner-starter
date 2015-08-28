@@ -30,6 +30,7 @@
   "devDependencies": {
     "chokidar": "^1.0.5",
     "eslint": "^1.2.1",
+    "eslint-config-airbnb": "0.0.8",
     "esnow": "^1.0.16",
     "http-server": "^0.8.0",
     "jade-cli": "^0.1.0",

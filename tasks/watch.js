@@ -26,13 +26,12 @@ watcher = chokidar.watch(dir, {
 
 log = console.log.bind(console);
 
-watcher
-  .on('change', function(filename) {
-    console.log('\nchanged: ' + filename);
+watcher.on('change', function(filename) {
+  console.log('\nchanged: ' + filename);
 
-    exec(command, function execCb (error, stdout, stderr) {
-      if (stdout) log('\nstdout: ' + stdout);
-      if (stderr) log('\nstderr: ' + stderr);
-      if (error !== null) log('exec error: ' + error);
-    });
+  exec(command, function execCb (error, stdout, stderr) {
+    if (stdout) log('\nstdout: ' + stdout);
+    if (stderr) log('\nstderr: ' + stderr);
+    if (error !== null) log('exec error: ' + error);
   });
+});
