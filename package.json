@@ -1,9 +1,8 @@
 {
-  "name": "my-super-lame-site",
+  "name": "tiny-static",
   "version": "1.0.0",
-  "description": "This is my super lame site.",
+  "description": "My site.",
   "scripts": {
-    "demo": "node tasks/demo.js",
     "jade": "jade --pretty --hierarchy src/jade/site -o out",
     "stylus": "mkdirp out/css && stylus -u yeticss ./src/stylus/main.styl --out out/css -m",
     "js": "esnow -e src/js/main.js -o out/js -f bundle.js",
